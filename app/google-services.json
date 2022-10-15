@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "338563487526",
+    "firebase_url": "https://guidinglightgroup5opsc7312-default-rtdb.firebaseio.com",
+    "project_id": "guidinglightgroup5opsc7312",
+    "storage_bucket": "guidinglightgroup5opsc7312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338563487526:android:2c4664bbe1aa11f3f7d3e7",
+        "android_client_info": {
+          "package_name": "com.example.guidinglight_opsc_part_2_group_5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338563487526-3te7t3fouqt54dfoav1lsm7u6bfm6hfa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmBlQ3MXFdnkpZdYNtaKXAwG_dzRuGfas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338563487526-3te7t3fouqt54dfoav1lsm7u6bfm6hfa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

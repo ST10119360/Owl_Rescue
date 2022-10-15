@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".SettingsPage"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Calculation Preference"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:padding="5dp"
+        android:id="@+id/tvHead">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvHead"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Kilometers"
+            android:textColor="@color/black"
+            android:id="@+id/switcKm">
+
+        </androidx.appcompat.widget.SwitchCompat>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Miles"
+            android:textColor="@color/black"
+            android:id="@+id/switcMiles">
+
+        </androidx.appcompat.widget.SwitchCompat>
+    </LinearLayout>
+
+
+</RelativeLayout>
