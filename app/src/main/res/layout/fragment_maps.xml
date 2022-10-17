@@ -1,14 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/room1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="630dp"
+        android:id="@+id/room2">
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/getActivity"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Maps">
+    tools:context=".MapsActivity"/>
 
-    <!-- TODO: Update blank fragment layout -->
+        <EditText
+            android:id="@+id/edt_search"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:hint="Search For Location"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            ></EditText>
+
+        <Button
+            android:id="@+id/btn_Menu"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="27dp"
+            android:background="@color/white"
+            android:text="menu"
+            android:gravity="center"
+            android:onClick="onClick">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_Place"
+            android:layout_width="26dp"
+            android:layout_height="25dp"
+            android:layout_marginHorizontal="-32dp"
+            android:layout_marginTop="27dp"
+            android:layout_toEndOf="@id/edt_search"
+            android:background="@color/white"
+            android:text="search"
+            android:gravity="center"
+            android:onClick="onClick">
+
+        </Button>
+
+    </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation"
+        android:text="Near By Landmarks"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/room2">
+    </TextView>
 
-</FrameLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/hsvNear"
+        android:layout_below="@id/navigation">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+
+
+            <Button
+                android:id="@+id/btn_hospital"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Hospitals" />
+
+            <Button
+                android:id="@+id/btn_restaurant"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Restaurants" />
+
+            <Button
+                android:id="@+id/btn_school"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Schools" />
+
+            <Button
+                android:id="@+id/btn_airport"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Atm" />
+
+            <Button
+                android:id="@+id/btn_church"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Church" />
+            <Button
+                android:id="@+id/btn_dentist"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Dentist" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/navigation2"
+        android:text="View Details"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@id/hsvNear">
+    </TextView>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/hsvNear2"
+        android:layout_below="@id/navigation2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+
+            <Button
+                android:id="@+id/btn_fav"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Favorite" />
+
+            <Button
+                android:id="@+id/btnExit"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Exit" />
+
+            <Button
+                android:id="@+id/btnRefresh"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="onClick"
+                android:text="Refresh Map" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>

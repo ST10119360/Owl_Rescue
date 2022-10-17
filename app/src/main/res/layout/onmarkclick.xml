@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="170dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:id="@+id/OnClickedDetails"
+        android:text="OnClicked Details"
+        android:textColor="@color/white"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:layout_centerHorizontal="true">
+
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/OnClickedDetails"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name1">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name2"
+            android:layout_below="@id/name1">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name3"
+            android:layout_below="@id/name2">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name4"
+            android:layout_below="@id/name3">
+
+        </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name5"
+            android:layout_below="@id/name4">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/btnCa"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/name5"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Cancel"
+            android:textColor="@color/black">
+
+        </Button>
+    </RelativeLayout>
+
+</RelativeLayout>
