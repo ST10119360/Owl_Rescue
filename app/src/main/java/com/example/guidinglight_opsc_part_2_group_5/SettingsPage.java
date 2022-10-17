@@ -1,13 +1,14 @@
 package com.example.guidinglight_opsc_part_2_group_5;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -114,5 +115,12 @@ public class SettingsPage extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+
+        Intent intent= new Intent(SettingsPage.this,HomePage.class);
+        startActivity(intent);
+        return true;
     }
 }
