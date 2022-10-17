@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
-import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -52,7 +51,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
+public class Location extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
@@ -66,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double currentLatitude;
     private double currentlongitude;
     private GoogleApiClient client;
-    private Location location;
+    private android.location.Location location;
     private Marker mark;
     private LocationRequest requestLocationUpdates;
     private int PROXIMITY_RADIUS = 10000;
@@ -85,10 +84,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public String addresssssss;
     TextView text1,text2;
     EditText enteredPlace ;
+    SupportMapFragment mapFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_maps);
+
 
         enteredPlace = (EditText) findViewById(R.id.edt_search);
         Places.initialize(getApplicationContext(), "AIzaSyCFEmm4byf82ebpvEgSk0lzSQChvGdS7TA");
@@ -101,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Place.Field.LAT_LNG, Place.Field.NAME);
 
                 Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList)
-                        .build(MapsActivity.this);
+                        .build(Location.this);
                 startActivityForResult(intent,100);
 
             }
@@ -114,10 +116,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             permission();
         }
 
-        SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager()
+         mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.getActivity);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
+       mapFragment.getMapAsync(this);
+
 
 
     }
@@ -136,7 +138,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         else if(resultCode== AutocompleteActivity.RESULT_ERROR)
         {
             Status sta=Autocomplete.getStatusFromIntent(data);
-            Toast.makeText(MapsActivity.this, ""+sta.getStatusMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Location.this, ""+sta.getStatusMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -167,7 +169,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 MarkerOptions opts = new MarkerOptions();
 
-                startBuild=new AlertDialog.Builder(MapsActivity.this);
+                startBuild=new AlertDialog.Builder(Location.this);
                 startBuild.setTitle("Select What To Do:");
 
                 CharSequence[] cha={"Display Direction","Add Favorite","Display Place","Cancel"};
@@ -182,7 +184,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         {
                             case 0:
 
-                                Geocoder onLong= new Geocoder(MapsActivity.this, Locale.getDefault());
+                                Geocoder onLong= new Geocoder(Location.this, Locale.getDefault());
                                 List<Address> longMap=null;
                                 try
                                 {
@@ -236,7 +238,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 try
                                 {
 
-                                    Geocoder add= new Geocoder(MapsActivity.this, Locale.getDefault());
+                                    Geocoder add= new Geocoder(Location.this, Locale.getDefault());
                                     List<Address> lst=null;
 
 
@@ -256,7 +258,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                                 if(addresssssss=="" || addresssssss==null)
                                 {
-                                    Toast.makeText(MapsActivity.this, "No Place", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Location.this, "No Place", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
 
@@ -267,11 +269,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                                 public void onComplete(@NonNull Task<Void> task)
                                                 {
                                                     if (task.isSuccessful()) {
-                                                        Toast.makeText(MapsActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(Location.this, "Saved", Toast.LENGTH_SHORT).show();
                                                     }
                                                     else
                                                     {
-                                                        Toast.makeText(MapsActivity.this, "Not Saved", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(Location.this, "Not Saved", Toast.LENGTH_SHORT).show();
 
                                                     }
                                                 }
@@ -284,7 +286,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 try
                                 {
 
-                                    Geocoder geocoder= new Geocoder(MapsActivity.this, Locale.getDefault());
+                                    Geocoder geocoder= new Geocoder(Location.this, Locale.getDefault());
                                     List<Address> lst=null;
 
 
@@ -358,7 +360,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 {
                     MarkerOptions opts = new MarkerOptions();
 
-                    startBuild = new AlertDialog.Builder(MapsActivity.this);
+                    startBuild = new AlertDialog.Builder(Location.this);
                     startBuild.setTitle("Select What To Do:");
 
                     CharSequence[] cha = {"Display Direction", "Add Favorite", "Display Place", "Cancel"};
@@ -373,7 +375,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             switch (which) {
                                 case 0:
                                     if (!place.equals("")) {
-                                        Geocoder geocoder = new Geocoder(MapsActivity.this);
+                                        Geocoder geocoder = new Geocoder(Location.this);
                                         try
                                         {
                                             seachedAddress = geocoder.getFromLocationName(place, 1);
@@ -417,7 +419,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     }
                                     else
                                     {
-                                        Toast.makeText(MapsActivity.this, "Invalid Place", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Location.this, "Invalid Place", Toast.LENGTH_SHORT).show();
                                     }
 
                                     break;
@@ -425,7 +427,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 case 1:
                                     if (place.equals(""))
                                     {
-                                        Toast.makeText(MapsActivity.this, "No Place", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Location.this, "No Place", Toast.LENGTH_SHORT).show();
                                     } else
                                     {
 
@@ -436,11 +438,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if (task.isSuccessful())
                                                         {
-                                                            Toast.makeText(MapsActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(Location.this, "Saved", Toast.LENGTH_SHORT).show();
                                                             enteredPlace.setText("");
                                                         } else
                                                         {
-                                                            Toast.makeText(MapsActivity.this, "Not Saved", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(Location.this, "Not Saved", Toast.LENGTH_SHORT).show();
 
                                                         }
                                                     }
@@ -451,7 +453,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 case 2:
 
                                     if (!place.equals("")) {
-                                        Geocoder geocoder = new Geocoder(MapsActivity.this);
+                                        Geocoder geocoder = new Geocoder(Location.this);
                                         List<Address> l = null;
                                         try {
                                             l = geocoder.getFromLocationName(place, 1);
@@ -476,7 +478,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     }
                                     else
                                     {
-                                        Toast.makeText(MapsActivity.this, "Please enter Place to Search", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Location.this, "Please enter Place to Search", Toast.LENGTH_SHORT).show();
                                     }
 
 
@@ -564,7 +566,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             case R.id.btn_fav:
 
-                Intent intent= new Intent(MapsActivity.this, FaveLandmarks.class);
+                Intent intent= new Intent(Location.this, FaveLandmarks.class);
                 startActivity(intent);
                 break;
 
@@ -622,7 +624,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void onLocationChanged(Location locate)
+    public void onLocationChanged(android.location.Location locate)
     {
         location = locate;
 
@@ -728,7 +730,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public boolean onMarkerClick(Marker marker)
     {
-        Dialog dialog= new Dialog(MapsActivity.this);
+        Dialog dialog= new Dialog(Location.this);
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.onmarkclick);
 
@@ -749,7 +751,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-        Geocoder geocoder= new Geocoder(MapsActivity.this, Locale.getDefault());
+        Geocoder geocoder= new Geocoder(Location.this, Locale.getDefault());
         try
         {
             List<Address> lst= null;

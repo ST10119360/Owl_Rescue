@@ -30,7 +30,7 @@ import java.util.HashMap;
 
 
 
-            Installlinkl dwn = new Installlinkl();
+            Link dwn = new Link();
             try
             {
                 direct = dwn.readUrl(link);

@@ -1,7 +1,5 @@
 package com.example.guidinglight_opsc_part_2_group_5;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -86,7 +84,7 @@ public class send_data
     {
         int sub = jArray.length();
         List<HashMap<String,String>> pList = new ArrayList<>();
-        HashMap<String,String> pcMap = null;
+        HashMap<String,String> pcMap ;
 
         for(int i = 0;i<sub;i++)
         {

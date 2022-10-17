@@ -24,7 +24,7 @@ public class navigate_near_places extends AsyncTask<Object, String, String> {
         googleMaps = (GoogleMap)objects[0];
         link = (String)objects[1];
 
-        Installlinkl downloadUrl = new Installlinkl();
+        Link downloadUrl = new Link();
         try {
             places = downloadUrl.readUrl(link);
         } catch (IOException e) {
