@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomePage extends AppCompatActivity {
     ActionBar act;
     Intent intent;
-    private CardView viewMap, viewSettings, viewFavorites;
+    private CardView viewMap, viewSettings, viewFavorites, viewLocations;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class HomePage extends AppCompatActivity {
         viewMap = (CardView) findViewById(R.id.cardViewMap);
         viewSettings = (CardView) findViewById(R.id.carViewSettings);
         viewFavorites = (CardView) findViewById(R.id.cardViewFavorites);
+        viewLocations = (CardView) findViewById(R.id.cardViewRescue);
 
 
         viewMap.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,18 @@ public class HomePage extends AppCompatActivity {
 
 
         });
+        viewLocations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent= new Intent(HomePage.this, RescueDatabase.class);
+                startActivity(intent);
+
+            }
+
+
+        });
+
 
 
 

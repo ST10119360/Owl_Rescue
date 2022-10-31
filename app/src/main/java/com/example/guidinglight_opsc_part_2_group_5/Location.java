@@ -500,65 +500,14 @@ public class Location extends FragmentActivity implements OnMapReadyCallback,
             }
             break;
 
-            case R.id.btn_hospital:
-                googleMap.clear();
-                hos= "hospital";
-                String link = retriveLink(currentLatitude, currentlongitude, hos);
 
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
 
-                navigate.execute(dataTransfer);
-                break;
 
-            case R.id.btn_airport:
-                googleMap.clear();
-                hos= "atm";
-                link = retriveLink(currentLatitude, currentlongitude, hos);
 
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
 
-                navigate.execute(dataTransfer);
 
-                break;
 
-            case R.id.btn_dentist:
-                googleMap.clear();
-                hos= "dentist";
-                link = retriveLink(currentLatitude, currentlongitude, hos);
 
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
-
-                navigate.execute(dataTransfer);
-
-                break;
-
-            case R.id.btn_church:
-                googleMap.clear();
-                hos= "church";
-                link = retriveLink(currentLatitude, currentlongitude, hos);
-
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
-
-                navigate.execute(dataTransfer);
-
-                break;
-
-            case R.id.btn_restaurant:
-                googleMap.clear();
-                dataTransfer = new Object[2];
-                fastFood = "restaurant";
-                link = retriveLink(currentLatitude, currentlongitude, fastFood);
-                navigate = new navigate_near_places();
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
-
-                navigate.execute(dataTransfer);
-
-                break;
             case R.id.btnExit:
 
                 System.exit(1);
@@ -590,17 +539,7 @@ public class Location extends FragmentActivity implements OnMapReadyCallback,
                 googleMap.clear();
 
                 break;
-            case R.id.btn_school:
-                googleMap.clear();
-                sch = "school";
-                dataTransfer = new Object[2];
-                link = retriveLink(currentLatitude, currentlongitude, sch);
-                navigate = new navigate_near_places();
-                dataTransfer[0] = googleMap;
-                dataTransfer[1] = link;
 
-                navigate.execute(dataTransfer);
-                break;
         }
     }
 

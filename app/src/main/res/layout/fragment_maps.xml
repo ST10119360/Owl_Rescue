@@ -78,51 +78,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            >
-
-
-            <Button
-                android:id="@+id/btn_hospital"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Hospitals" />
-
-            <Button
-                android:id="@+id/btn_restaurant"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Restaurants" />
-
-            <Button
-                android:id="@+id/btn_school"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Schools" />
-
-            <Button
-                android:id="@+id/btn_airport"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Atm" />
-
-            <Button
-                android:id="@+id/btn_church"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Church" />
-            <Button
-                android:id="@+id/btn_dentist"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:onClick="onClick"
-                android:text="Dentist" />
-
-        </LinearLayout>
+            />
     </HorizontalScrollView>
 
     <TextView
