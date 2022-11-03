@@ -1,4 +1,4 @@
-package com.example.guidinglight_opsc_part_2_group_5;
+package com.example.SAWRC;
 
 import android.content.Context;
 
